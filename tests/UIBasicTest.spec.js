@@ -41,11 +41,11 @@ test('Dropdwon Test', async ({ page }) => {
   await page.locator('#password').fill("Learning@830$3mK2");
   await dropdown.selectOption("Teacher"); // Dropdown selection
   await page.locator(".radiotextsty").last().click(); // Select radio button value, This will select last option of radio button 
-  await page.pause();
+  //await page.pause();
 }
 );
 
-test.only("Chld Window Navigation", async ({ browser }) => {
+test("Chld Window Navigation", async ({ browser }) => {
   const context = await browser.newContext();
   const page = await context.newPage();
   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
