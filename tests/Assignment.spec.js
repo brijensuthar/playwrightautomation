@@ -11,6 +11,7 @@ test("Assignment", async ({page}) => {
 
     const browseText = await page.locator(".flex a .inline-flex").first().textContent();
     await expect(browseText.trim()).toBe(expectedText);
+    
     await page.locator(".relative .flex").first().click();
     await page.locator("[href='/admin/events']").first().click();
     
@@ -43,6 +44,7 @@ test("Assignment", async ({page}) => {
     await page.locator("#customer-email").fill("brijensuthar@gmail.com");
     await page.getByPlaceholder("+91 98765 43210").fill("98775 43210");
     await page.locator(".confirm-booking-btn").click();
+
     await expect(page.locator(".booking-ref")).toBeVisible();
     const bookingRef = await page.locator(".booking-ref").textContent();
     console.log(bookingRef);
@@ -54,6 +56,19 @@ test("Assignment", async ({page}) => {
     await expect(page.locator("#booking-card").filter({hasText: bookingRef})).toBeVisible();
     await expect(await page.locator(".text-base").first().textContent()).toBe("World Tech Summit");
 
+    await page.locator("#nav-events").click();
+    await page.waitForLoadState("networkidle");
+    await expect(page.locator("[data-testid='event-card']").first()).toBeVisible();
+    await page.locator("[data-testid='event-card']").filter({hasText: 'World Tech Summit'}).waitFor({
+        state: "visible",
+        timeout: 5000
+    })
+
+    const seatsAfterBooking = await page.locator("span[class*='text-amber-600']").last().textContent();
+    console.log(seatsAfterBooking);
+    const result1 = seatsAfterBooking.split(" ");
+    console.log("Available Seat is "+ result1[0]);
+    await expect(result1[0]).toEqual(result[0]);
 
 });
 
