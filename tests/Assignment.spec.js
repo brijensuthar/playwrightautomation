@@ -1,7 +1,7 @@
 
 const {test, expect} = require('@playwright/test');
 
-test("Assignment", async ({page}) => {
+test("Assignment for booking event", async ({page}) => {
 
     await page.goto("https://eventhub.rahulshettyacademy.com");
     await page.getByPlaceholder("you@email.com").fill('brijensuthar@gmail.com');  
