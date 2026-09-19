@@ -4,11 +4,11 @@ const { text } = require('node:stream/consumers');
 
 test('@Web Client App login', async ({ page }) => {
    //js file- Login js, DashboardPage
-   const email = "brijensuthar@gmail.com";
+   const username = "brijensuthar@gmail.com";
    const productName = "ZARA COAT 3";
    const products = page.locator(".card-body");
    await page.goto("https://rahulshettyacademy.com/client");
-   await page.locator("#userEmail").fill(email);
+   await page.locator("#userEmail").fill(username);
    await page.locator("#userPassword").fill("Brijen@123");
    await page.locator("[value='Login']").click();
    await page.waitForLoadState('networkidle');
@@ -53,7 +53,7 @@ test('@Web Client App login', async ({ page }) => {
    }
    //await page.pause();
 
-   expect(await page.locator(".user__name [type='text']").first()).toHaveText(email);
+   expect(await page.locator(".user__name [type='text']").first()).toHaveText(username);
    await page.locator("[class*='validated']").first().fill("4542 9931 9292 2294");
    await page.locator(".input").nth(1).selectOption({ index: 4 });
    await page.locator(".input").nth(2).selectOption({ index: 4 });
