@@ -1,17 +1,18 @@
 
-const { test, request } = require('@playwright/test');
+const { test, request, expect } = require('@playwright/test');
 const { APIUtils } = require('./Utils/APIUtils');
 const LoginPayload = { userEmail: "brijensuthar@gmail.com", userPassword: "Brijen@123" }
 const OrderPayload = { orders: [{ country: "Argentina", productOrderedId: "6960eac0c941646b7a8b3e68" }] }
 let apiContext;
 let token;
+let response;
 
 test.beforeAll(async () => {
 
     apiContext = await request.newContext();
     const apiUtils = new APIUtils(apiContext, LoginPayload);
-    //response = await apiUtils.createOrder(OrderPayload);
-    token = apiUtils.getToken();
+    response = await apiUtils.createOrder(OrderPayload);
+    token = await apiUtils.getToken();
 
 });
 
@@ -22,7 +23,7 @@ test('@Web Client App login and create order by API', async ({ page }) => {
     }, token);
 
     await page.goto("https://rahulshettyacademy.com/client/#/dashboard/dash");
-    await page.pause();
+    //await page.pause();
     await page.locator("button[routerlink*='myorders']").click();
     await page.locator("tbody").waitFor();
     const rows = await page.locator("tbody tr");

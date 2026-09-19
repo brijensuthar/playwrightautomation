@@ -14,27 +14,27 @@ class APIUtils {
         );
         const LoginResponseJson = await LoginResponse.json();
         const token = LoginResponseJson.token;
-        //console.log(token);
+        console.log(token);
         return token;
     }
 
-    // async createOrder(OrderPayload) {
-    //     let response = {};
-    //     response.token = await this.getToken();
-    //     const orderResponse = await this.apiContext.post("https://rahulshettyacademy.com/api/ecom/order/create-order",
-    //         {
-    //             data: OrderPayload,
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 'Authorization': response.token
-    //             }
-    //         }
-    //     );
-    //     const orderResponseJson = await orderResponse.json();
-    //     const orderId = orderResponseJson.orders[0];
-    //     response.orderId = orderId;
-    //     return response;
-    // }
+    async createOrder(OrderPayload) {
+        let response = {};
+        response.token = await this.getToken();
+        const orderResponse = await this.apiContext.post("https://rahulshettyacademy.com/api/ecom/order/create-order",
+            {
+                data: OrderPayload,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': response.token
+                }
+            }
+        );
+        const orderResponseJson = await orderResponse.json();
+        const orderId = orderResponseJson.orders[0];
+        response.orderId = orderId;
+        return response;
+    }
 }
 
 module.exports = { APIUtils };
