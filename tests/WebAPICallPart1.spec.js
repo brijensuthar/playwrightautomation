@@ -1,6 +1,6 @@
 
 const { test, request, expect } = require('@playwright/test');
-const { APIUtils } = require('./Utils/APIUtils');
+const { APIUtils } = require('../Utils/APIUtils');
 const LoginPayload = { userEmail: "brijensuthar@gmail.com", userPassword: "Brijen@123" }
 const OrderPayload = { orders: [{ country: "Argentina", productOrderedId: "6960eac0c941646b7a8b3e68" }] }
 let apiContext;

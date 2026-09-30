@@ -1,6 +1,6 @@
 const { test, request } = require('@playwright/test');
 const LoginPayload = { email: "brijensuthar@gmail.com", password: "Brijen@123" };
-const { MokeAPIUtils } = require('./Utils/MokeAPIUtils');
+const { MokeAPIUtils } = require('../Utils/MokeAPIUtils');
 const { json } = require('node:stream/consumers');
 const FOUR_EVENTS_RESPONSE = {
     data: [

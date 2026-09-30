@@ -1,8 +1,9 @@
-
+ 
 const { defineConfig } = require('@playwright/test');
 
 module.exports = defineConfig({
   testDir: './tests',
+  testMatch: '**/*.spec.js',
 
   // Maximum time one test can run
   timeout: 90 * 1000,
@@ -14,7 +15,7 @@ module.exports = defineConfig({
 
   use: {
     browserName: 'chromium',
-    headless: false,
+    headless: true,
     screenshot: 'on',
     trace: 'on',
   },

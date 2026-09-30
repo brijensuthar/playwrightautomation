@@ -18,15 +18,23 @@
   "directories": {
     "test": "tests"
   },
-  "scripts": {},
+  "scripts": {
+    "APITest": "npx playwright test tests/APIMockTest.spec.js",
+    "TestApp": "npx playwright test tests/TestApp.spec.js"
+  },
   "dependencies": {
+    "@cucumber/cucumber": "^13.2.1",
     "exceljs": "^4.4.0",
     "playwright": "^1.60.0",
     "playwright-core": "^1.60.0",
     "undici-types": "^7.24.6"
   },
   "devDependencies": {
-    "@playwright/test": "^1.60.0",
-    "@types/node": "^25.9.1"
+    "@azure/identity": "^4.13.3",
+    "@azure/playwright": "^1.1.6",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^20.0.0",
+    "allure-playwright": "^3.12.2",
+    "typescript": "^5.3.3"
   }
 }
