@@ -1,7 +1,7 @@
 
 const {test, expect} = require('@playwright/test');
 
-test("Assignment for booking event", async ({page}) => {
+test('Assignment for booking event', async ({page}) => {
 
     await page.goto("https://eventhub.rahulshettyacademy.com");
     await page.getByPlaceholder("you@email.com").fill('brijensuthar@gmail.com');  
@@ -10,7 +10,7 @@ test("Assignment for booking event", async ({page}) => {
     const expectedText = "Browse Events →";
 
     const browseText = await page.locator(".flex a .inline-flex").first().textContent();
-    await expect(browseText.trim()).toBe(expectedText);
+    expect(browseText.trim()).toBe(expectedText);
     
     await page.locator(".relative .flex").first().click();
     await page.locator("[href='/admin/events']").first().click();

@@ -16,7 +16,7 @@ async function login(page, username, password) {
     await expect(page.getByRole('link', { name: 'Browse Events →' })).toBeVisible();
 }
 
-test("Single ticket booking is eligible for refund", async ({ page }) => {
+test('Single ticket booking is eligible for refund', async ({ page }) => {
     // Step-1 Login
     await login(page, username, password);
 
@@ -58,7 +58,7 @@ test("Single ticket booking is eligible for refund", async ({ page }) => {
     await expect(currentRefundText).toContain(' Single-ticket bookings qualify for a full refund.');
 });
 
-test.only("Single-ticket bookings qualify for a full refund.", async ({page}) => {
+test("Single-ticket bookings qualify for a full refund.", async ({page}) => {
     // Step-1 Login
     await login(page, username, password);
 

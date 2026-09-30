@@ -1,0 +1,10 @@
+var str = "hello";
+console.log("Strig is " + str);
+var num = 123;
+console.log("Number is " + num);
+var isActive = true;
+console.log("Status is " + isActive);
+var users = ["Brijen", "Vipul"];
+console.log("Users are " + users[0] + users[1]);
+var data = { name: "Brijen", age: 32 };
+console.log(data.name);
