@@ -1,4 +1,4 @@
-const { customtestAssignment } = require('./Utils/CustFixAssignUtils');
+const { customtestAssignment } = require('../Utils/CustFixAssignUtils');
 const {expect} = require('@playwright/test');
 
 

@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test')
 
-test("Unauthorised Order Access", async ({ page }) => {
+test("@API Unauthorised Order Access", async ({ page }) => {
 
     await page.goto("https://rahulshettyacademy.com/client");
     await page.locator("#userEmail").fill("brijensuthar@gmail.com");

@@ -1,6 +1,6 @@
 const { test, request, expect } = require('@playwright/test');
 const LoginPayload = { email: "brijensuthar@gmail.com", password: "Brijen@123" }
-const { MokeAPIUtils } = require('./Utils/MokeAPIUtils')
+const { MokeAPIUtils } = require('../Utils/MokeAPIUtils')
 let apiContext;
 let token;
 const SIX_EVENTS_RESPONSE = {
@@ -67,7 +67,7 @@ test("API Mock Test for SIX_EVENTS_RESPONSE", async ({ page }) => {
     await page.pause();
 })
 
-test.only("API Mock Test for FOUR_EVENTS_RESPONSE", async ({ page }) => {
+test("API Mock Test for FOUR_EVENTS_RESPONSE", async ({ page }) => {
 
     await page.addInitScript(value => {
         window.localStorage.setItem('eventhub_token', value);

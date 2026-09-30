@@ -1,6 +1,6 @@
 
 const { test, request } = require('@playwright/test');
-const { APIUtils } = require('./Utils/APIUtils');
+const { APIUtils } = require('../Utils/APIUtils');
 const LoginPayload = { userEmail: "brijensuthar@gmail.com", userPassword: "Brijen@123" }
 let apiContext;
 let token;

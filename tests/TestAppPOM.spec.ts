@@ -1,12 +1,12 @@
-const { test, expect } = require('@playwright/test');
-const { POManager } = require('../Pages/POManager');
+import { test, expect } from '@playwright/test';
+import { POManager } from '../Pages_TS/POManager';
 const dataSet = JSON.parse(JSON.stringify(require('../Utils/placeOrderTestData.json')));
 
 for (const data of dataSet) {
    test(`Client App login ${data.username}`, async ({ page }) => {
       //js file- Login js, DashboardPage
       const poManager = new POManager(page);
-      
+
       // Login Page
       const loginPage = poManager.getLogin();
       await loginPage.goTo();

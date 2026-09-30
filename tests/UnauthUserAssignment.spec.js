@@ -28,7 +28,7 @@ test.beforeAll(async () => {
     return token;
 });
 
-test("Assignment for Login by API context", async ({ page, browser }) => {
+test("@API Assignment for Login by API context", async ({ page, browser }) => {
 
     await page.addInitScript(value => {
         window.localStorage.setItem('eventhub_token', value)
