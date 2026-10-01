@@ -1,5 +1,5 @@
 const { defineConfig } = require('@playwright/test');
-const { createAzurePlaywrightConfig, ServiceOS, ServiceAuth } = require('@azure/playwright');
+const { createAzurePlaywrightConfig, ServiceOS } = require('@azure/playwright');
 const { DefaultAzureCredential } = require('@azure/identity');
 const config = require('./playwright.config');
 
@@ -10,8 +10,7 @@ export default defineConfig(
     exposeNetwork: '<loopback>',
     connectTimeout: 3 * 60 * 1000, // 3 minutes
     os: ServiceOS.LINUX,
-    //credential: new DefaultAzureCredential(),
-    serviceAuthType: ServiceAuth.ACCESS_TOKEN,
+    credential: new DefaultAzureCredential(),
   }),
   {
     /*
