@@ -1,4 +1,4 @@
- 
+
 const { defineConfig } = require('@playwright/test');
 
 module.exports = defineConfig({
@@ -20,5 +20,7 @@ module.exports = defineConfig({
     trace: 'on',
   },
 
-  reporter: 'html',
+  reporter: process.env.CI
+    ? [['blob', { outputDir: 'blob-report' }]]
+    : [['html', { outputFolder: 'playwright-report', open: 'never' }]],
 });
