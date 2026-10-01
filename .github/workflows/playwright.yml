@@ -1,9 +1,7 @@
 name: Playwright Tests
 on:
-  push:
-    branches: [ main, master ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ main, master, feature/test ]
 jobs:
   test:
     timeout-minutes: 60
@@ -21,7 +19,8 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Run Playwright tests
       env:
-        PLAYWRIGHT_SERVICE_URL: ${{vars.PLAYWRIGHT_SERVICE_URL}}
+        PLAYWRIGHT_SERVICE_URL: ${{ vars.PLAYWRIGHT_SERVICE_URL }}
+        PLAYWRIGHT_SERVICE_ACCESS_TOKEN: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_TOKEN }}
       run: npx playwright test --config=playwright.service.config.js --workers=2
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
