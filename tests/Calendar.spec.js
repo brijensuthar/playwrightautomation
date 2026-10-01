@@ -19,6 +19,7 @@ test("Calendar Demo", async ({page}) =>
 
     const input = await page.locator(".react-date-picker__inputGroup__input")
 
+    // for loop to iterate
     for(let i=0; i< expectedList.length; i++){
         const value = await input.nth(i).inputValue();
         console.log(value);
